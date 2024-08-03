@@ -1,0 +1,1 @@
+After a looong time distracting myself, I'm officially starting my Dev Journey. I decided to start with this course, its content seemed to be pretty decent and up to date. I'll put a feedback here as the time goes by. 
