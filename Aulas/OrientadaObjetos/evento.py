@@ -1,17 +1,27 @@
+import json
+
 class Evento:
+    id = 1
+    
     def __init__(self, nome, local=""):
         self.nome = nome
         self.local = local
-
-    def imprime_informacoes(self):
-        print("Nome do evento:", self.nome)
-        print("Local do evento:", self.local)
+        self.id = Evento.id
+        Evento.id += 1
         
-    @classmethod
-    def cria_evento_online(cls, nome):
-        evento = cls(nome, local="https://tamarcado.com/eventos?id=1")
-        return evento
-    
+    def imprime_informacoes(self):
+        print(f"ID do evento: {self.id}")
+        print(f"Nome do evento: {self.nome}")
+        print(f"Local do evento: {self.local}")
+        print("------------------")
+        
+    def to_json(self):
+        return json.dumps({
+            "id": self.id,
+            "local": self.local,
+            "nome": self.nome
+        })
+        
     @staticmethod
     def calcula_limite_pessoas_area(area):
         if 5 <= area < 10:
@@ -22,12 +32,3 @@ class Evento:
             return 30
         else:
             return 0
-        
-        
-# ev = Evento("Aula de Python")
-# ev2 = Evento("Aula de JavaScript", "Santa Catarina")
-
-# ev_online = Evento.cria_evento_online("Live de Python")
-# ev_online.imprime_informacoes()
-
-print(Evento.calcula_limite_pessoas_area(20))
