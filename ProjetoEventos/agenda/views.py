@@ -1,6 +1,5 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render
-from agenda.models import eventos
 from django.template import loader
 
 
@@ -10,7 +9,7 @@ def index(request):
 
 
 def exibir_evento(request):
-    evento = eventos[1]
+    evento = {"nome": "Teste", "categoria": "Categoria A", "local": "Santa Catarina"}
     # template = loader.get_template("agenda/exibir_evento.html")
     # rendered_template = template.render(
     #     context={"evento": evento}, request=request

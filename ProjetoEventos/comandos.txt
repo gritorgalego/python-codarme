@@ -1,0 +1,13 @@
+- Comandos utilizados com frequência -
+
+.\venv\Scripts\activate (iniciar venv)
+
+python manage.py runserver (iniciar server)
+
+python manage.py makemigrations 
+
+python manage.py migrate 
+
+python manage.py dbshell (conectar um cliente no banco de dados)
+
+python manage.py shell
