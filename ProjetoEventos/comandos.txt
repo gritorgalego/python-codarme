@@ -1,13 +1,7 @@
-- Comandos utilizados com frequência -
-
-.\venv\Scripts\activate (iniciar venv)
-
-python manage.py runserver (iniciar server)
-
-python manage.py makemigrations 
-
-python manage.py migrate 
-
-python manage.py dbshell (conectar um cliente no banco de dados)
-
+django-admin startproject <nome-projeto>
+django-admin startapp <nome-app>
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
 python manage.py shell
+python manage.py dbshell
