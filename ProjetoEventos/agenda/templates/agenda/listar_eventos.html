@@ -1,17 +1,57 @@
-<html>
-    <head>
-        <style>
-            table {
-                border-collapse: collapse;
-            }
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
-        </style>
-    </head>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #008CBA;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
     <table>
         <thead>
             <tr>
@@ -32,11 +72,13 @@
                         {% if evento.data %}
                             {{evento.data | date:"d/m/Y"}}
                         {% else %}
-                            a definir 
-                        {% endif%}</td>
-                    <td><a href="exibir_evento.html">Ver detalhes</a></td>
+                            a definir
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url 'exibir_evento' evento.id %}">Ver detalhes</a></td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-<html>
+</body>
+</html>

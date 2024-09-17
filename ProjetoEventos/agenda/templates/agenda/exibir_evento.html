@@ -1,7 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Evento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
 
-<html>
-    <h1> Evento: {{evento.nome}}</h1>
-    <p>Categoria: {{evento.categoria}}</p>
-    {% if evento.local %}<p>Local: {{evento.local}}</p>{% endif %}
-    {% if evento.link %}<p>Link: {{evento.link}}</p>{% endif %}     
+        p {
+            color: #555;
+            font-size: 16px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #008CBA;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .event-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="event-details">
+        <h1>Evento: {{ evento.nome }}</h1>
+        <p>Categoria: {{ evento.categoria.nome }}</p>
+        {% if evento.local %}<p>Local: {{ evento.local }}</p>{% endif %}
+        {% if evento.link %}<p>Link: <a href="{{ evento.link }}">{{ evento.link }}</a></p>{% endif %} 
+        <p>Data: {% if evento.data %}{{evento.data | date:"d/m/Y"}}{% else %}a definir. {% endif%}</p>
+        <p>Quantidade de participantes: {{ evento.participantes }}</p>
+        
+        <form action="{% url 'participar_evento' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="evento_id" value="{{evento.id}}">
+            <input type="submit" value="Participar">
+        </form>
+
+        <p><a href="{% url 'listar_eventos' %}">Ir para listagem de eventos</a></p>
+    </div>
+</body>
 </html>
