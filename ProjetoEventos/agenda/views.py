@@ -8,7 +8,7 @@ from agenda.models import Evento
 
 # Create your views here.
 def listar_eventos(request):
-    eventos = Evento.objects.filter(data__gte=date.today()).order_by("-data")
+    eventos = Evento.objects.filter(data__gte=date.today()).order_by("data")
     return render(
         request=request,
         context={"eventos": eventos},
