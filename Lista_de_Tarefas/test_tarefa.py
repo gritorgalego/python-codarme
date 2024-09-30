@@ -35,4 +35,22 @@ class TestAdiarNotificacao(unittest.TestCase):
         self.assertEqual(tarefa.data_notificacao, dt_esperado)
 
 
+class TestTarefaAtrasada(unittest.TestCase):
+    def test_tarefa_atrasada(self):
+        data_passada = datetime.now() - timedelta(days=1)
+        tarefa = Tarefa(titulo="Tarefa atrasada", data=data_passada)
+        self.assertTrue(tarefa.atrasada())
+
+    def test_tarefa_nao_atrasada(self):
+        data_futura = datetime.now() + timedelta(days=1)
+        tarefa = Tarefa(titulo="Tarefa no prazo", data=data_futura)
+        self.assertFalse(tarefa.atrasada())
+
+    def test_tarefa_concluida_nao_atrasada(self):
+        data_passada = datetime.now() - timedelta(days=1)
+        tarefa = Tarefa(titulo="Tarefa concluída", data=data_passada)
+        tarefa.concluida = True
+        self.assertFalse(tarefa.atrasada())
+
+
 unittest.main()

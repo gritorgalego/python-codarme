@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 
 class Tarefa:
@@ -8,6 +8,7 @@ class Tarefa:
         self.data = data
         self.data_notificacao = data_notificacao
         self.concluida = False
+        self.atraso = False
 
     def concluir(self):
         """
@@ -37,3 +38,6 @@ class Tarefa:
         """
         Diz se a tarefa está atrasada. Ou seja, data < hoje.
         """
+        if self.data and not self.concluida:
+            return datetime.now() > self.data
+        return False
