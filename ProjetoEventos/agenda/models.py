@@ -20,5 +20,5 @@ class Evento(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     local = models.CharField(max_length=256, blank=True)
     link = models.CharField(max_length=256, blank=True)
-    data = models.DateField(null=True)
+    data = models.DateField(null=True, blank=True)
     participantes = models.IntegerField(default=0)

@@ -7,7 +7,7 @@ from agenda.models import Evento
 
 
 def listar_eventos(request):
-    eventos = Evento.objects.filter(data__gte=date.today()).order_by("data")
+    eventos = Evento.objects.exclude(data__lt=date.today()).order_by("data")
     return render(
         request=request,
         context={"eventos": eventos},
