@@ -1,3 +1,7 @@
 drf-api/db.sqlite3
 drf-api/__pycache__
 drf-api/venv
+drf-api/agenda/migrations/__pycache__/0002_agendamento_cancelado.cpython-312.pyc
+drf-api/agenda/__pycache__/views.cpython-312.pyc
+drf-api/agenda/__pycache__/models.cpython-312.pyc
+drf-api/db.sqlite3
