@@ -1,7 +1,13 @@
+# Ignorar banco de dados SQLite
 drf-api/db.sqlite3
-drf-api/__pycache__
-drf-api/venv
-drf-api/agenda/migrations/__pycache__/0002_agendamento_cancelado.cpython-312.pyc
-drf-api/agenda/__pycache__/views.cpython-312.pyc
-drf-api/agenda/__pycache__/models.cpython-312.pyc
-drf-api/db.sqlite3
+
+# Ignorar cache do Python
+drf-api/__pycache__/
+drf-api/agenda/migrations/__pycache__/
+drf-api/agenda/__pycache__/
+
+# Ignorar ambientes virtuais
+drf-api/venv/
+
+# Ignorar arquivos .pyc específicos
+drf-api/agenda/__pycache__/*.pyc
